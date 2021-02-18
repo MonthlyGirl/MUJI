@@ -1,0 +1,23 @@
+.m-login{
+  margin: 0 auto;
+  width: 500px;
+  height: 600px;
+  text-align: center;
+   &>h1{
+     margin-top: 20px;
+   }
+  .ant-row{
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+    width: 280px;
+    .ant-col{
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+  
+}
+.m-userInfo{
+  min-height: 800px;
+}

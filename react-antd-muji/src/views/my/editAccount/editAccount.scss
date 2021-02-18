@@ -1,0 +1,20 @@
+.editAccount {
+	width: 40%;
+	margin: 0 auto;
+	min-height: 500px;
+	.ant-row {
+		height: 40px !important;
+	}
+	.title {
+		color: #000;
+		font-weight: 600;
+		padding: 16px 34px 16px 0;
+		font-size: 16px;
+		line-height: 22px;
+		color: #585858;
+		text-align: center;
+	}
+	.login-form-button {
+		margin-left: 250px;
+	}
+}

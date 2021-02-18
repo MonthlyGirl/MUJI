@@ -1,0 +1,39 @@
+.m-cart{
+  margin: 80px auto 0;
+  width: 1200px;
+  min-height: 800px;
+  .m-cart-footer{
+    display: flex;
+    justify-content: space-between;
+    .m-total{
+      margin: 0 10px 0 25px;
+      padding: 10px 31px 11px;
+      color: #fff;
+      background-color: #000;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+    span{
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    i{
+      font-style: normal;
+      font-size: 20px;
+      color: #7f0019;
+    }
+    b{
+      font-weight: 500;
+      color: #7f0019;
+    }
+  }
+  .m-good{
+    img{
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

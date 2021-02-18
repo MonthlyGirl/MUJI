@@ -1,0 +1,71 @@
+// 通知栏
+.m-notice{
+  width: 1200px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #F2F2F2;
+  margin: 20px 0;
+  line-height: 50px;
+  padding:0 10px;
+  &>.left{
+    font-size: 18px;
+    font-weight: 900;
+    display: inline-block;
+    width: 114px;
+  }
+  &>.center{
+    // font-size: 20px;
+    // font-weight: bolder;
+    // margin-top: 1px;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  &>.right{
+    padding-left: 15px;
+    font-size: 16px;
+    color: #81C1F8;
+    display: inline-block;
+   
+  }
+}
+
+//标题
+.m-partHead{
+  width: 1200px;
+  height: 32px;
+  line-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  &>.left{
+    font-size: 24px;
+  }
+  &>.right{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #60B3FA;
+    cursor: pointer;
+  }
+}
+
+// 特集
+.m-campaign{
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  &>.m-camCard{
+    display: inline-block;
+    img{
+      width: 280px;
+      height: 175px;
+    }
+  }
+  .ant-card-body{
+    padding: 10px;
+  }
+}

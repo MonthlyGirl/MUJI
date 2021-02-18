@@ -1,0 +1,76 @@
+.muji-layout {
+	min-width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	.ant-layout {
+		height: 100%;
+		background-color: white;
+		.m-header {
+			height: 80px;
+			border-bottom: 1px solid #ccc;
+			position: fixed;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			z-index: 100;
+		}
+	}
+	.ant-layout-header {
+		padding: 0;
+		height: 79px;
+		width: 1200px;
+		margin: 0 auto;
+		background-color: white;
+	}
+	.logo {
+		width: 200px;
+		height: 80px;
+		background: url('./img/logo.jpg') no-repeat center;
+		background-size: 230px 80px;
+	}
+	.ant-row {
+		height: 80px;
+		& > .ant-col {
+			height: 80px;
+			line-height: 80px;
+			.search {
+				margin-top: 18px;
+			}
+		}
+	}
+	.m-content {
+		margin: 0 auto;
+		padding-top: 80px;
+		min-width: 1200px;
+		// background-color: rebeccapurple;
+		& > .m-main {
+			width: 1200px;
+		}
+	}
+	.m-footer {
+		margin: 50px auto 0;
+		width: 100%;
+		background-color: black;
+		color: #ffff;
+		height: 141px;
+		vertical-align: middle;
+		.ant-layout-footer {
+			background-color: white;
+			width: 1200px;
+			margin: 0 auto;
+			padding: 0;
+			background-color: black;
+			color: #8f8f8f;
+		}
+		.m-goobelFooter {
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			padding-top: 10px;
+			span {
+				display: block;
+				margin: 10px 0;
+			}
+		}
+	}
+}
