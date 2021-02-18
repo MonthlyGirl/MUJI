@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id='list'></div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $.ajax({
+      url: 'http://10.36.149.14:8888/getUserList',
+      method: 'POST',
+      data: {},
+      success: function(res) {
+        console.log('res', res)
+        var list = res.data
+        for(var i=0; i<list.length; i++){
+          $('#list').append(`
+            <div>
+              <span>${list[i].name}</span>
+              <span>---</span>
+              <span>${list[i].age||''}</span>
+            </div>
+          `)
+        }
+
+      }
+    })
+  </script>
+
+</body>
+</html>
