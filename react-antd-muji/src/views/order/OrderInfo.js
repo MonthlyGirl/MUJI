@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect,useState}from 'react';
 import './style.scss';
-import { Table } from 'antd';
+import { Table, Button, Popconfirm, message  } from 'antd';
 
 export default (props) => {
-	const columns = [
+	
+	let columns = [
 		{
 			title: '商品名称',
 			dataIndex: 'name',
@@ -42,7 +43,40 @@ export default (props) => {
 				</div>
 			),
 		},
+		{
+			title: '状态',
+			dataIndex: 'status',
+			align:'center',
+			render: (text) => (
+				<div>
+					{	Number(text) === 1 ? '待发货' : Number(text) === 2 ? '待收货':'订单已完成'}
+				</div>
+			),
+		},
 	];
+
+	
+	const addActionButton = () => {
+		props.showRecirveBtn && columns.push({
+			title: '操作',
+			dataIndex: 'action',
+			align:'center',
+			render: (text, row) => (
+				<Popconfirm
+					title="是否确认收货?"
+					onConfirm={() => props.handleRecieve(row)}
+					okText="Yes"
+					cancelText="No"
+				>
+					<Button type="primary">
+						确认收货
+					</Button>
+				</Popconfirm>
+			),
+		})
+		return columns
+	}
+
 	return (
 		<div>
 			<div className="m-frag-section">
@@ -54,7 +88,7 @@ export default (props) => {
 				<div className="m-frag-section-bd">
 					<div className="m-part-order-inner">
 						<Table
-							columns={columns}
+							columns={addActionButton()}
 							dataSource={props.data}
 							pagination={false}
 							rowKey="_id"

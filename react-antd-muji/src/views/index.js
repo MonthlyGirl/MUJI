@@ -25,7 +25,7 @@ export default [
 	{
 		id: 10,
 		component: GoodList,
-		path: '/good/list',
+		path: '/good/list/:id',
 	},
 	{
 		id: 11,

@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import OrderInfo from '../../order/OrderInfo';
+import OrderInfo from '@/views/order/OrderInfo';
 import * as _ from '../My.config';
 import '../My.scss';
 
-import { fetchOrderList, fetchAllOrder } from '@/utils/api';
+import { fetchOrderList, fetchAllOrder, fetchRecieve } from '@/utils/api';
+import { message } from 'antd';
 
 export default function Orders() {
 	const history = useHistory();
 	const [orderList, setOrderList] = useState([]);
 	const [isLogin, changeLoginState] = useState(true);
 	const [order_active, change_order_active] = useState(null);
+	const [bol,setBol] = useState(false)
+	
 	const handleClick = (key) => {
 		change_order_active(key);
+		console.log('key: ', key);
+
 		getOrderList(key);
 	};
 	useEffect(() => {
@@ -29,12 +34,34 @@ export default function Orders() {
 
 	const getOrderList = (path = window.location.href) => {
 		let params = path.split('?tab=')[1];
-		let status = params === 'all' ? 0 : params === 'pending_payment' ? 1 : 2;
-		fetchAllOrder().then((res) => {
-			setOrderList(res);
-		});
+		setBol(false)
+		switch (params){
+			case 'all':
+				return fetchAllOrder({}).then((res) => {
+					setOrderList(res);
+				});
+			case 'pending_payment':
+				return fetchOrderList({ status:1}).then(res => {
+					setOrderList(res);
+				})
+			default:
+				return fetchOrderList({ status: 2 }).then(res => {
+					setOrderList(res);
+					setBol(true)
+				})
+		}
 	};
 
+	const handleRecieve=(data)=>{
+		fetchRecieve({id:data._id}).then(res=>{
+			message.success('收货成功!',1).then(()=>{
+				fetchOrderList({ status: 2 }).then(res => {
+					setOrderList(res);
+				})
+			})
+		})
+	}
+	
 	return (
 		<div className="order">
 			{/* 菜单 */}
@@ -57,7 +84,12 @@ export default function Orders() {
 			</div>
 			{/* 订单 */}
 			<div style={{ width: '85%', margin: '0 auto' }}>
-				<OrderInfo data={orderList}  isTitleNone={true}/>
+				<OrderInfo 
+					data={orderList} 
+					isTitleNone={true} 
+					handleRecieve={handleRecieve} 
+					showRecirveBtn={bol}
+				/>
 			</div>
 		</div>
 	);

@@ -13,7 +13,7 @@ export const ICONS = [
 		key: '/my/orders?tab=all',
 	},
 	{
-		title: '待付款',
+		title: '待发货',
 		icon: <WalletOutlined style={ICON_STYle} />,
 		key: '/my/orders?tab=pending_payment',
 	},

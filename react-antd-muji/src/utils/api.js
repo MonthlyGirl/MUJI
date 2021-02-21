@@ -167,3 +167,13 @@ export function fetchUserInfo(data){
     data
   })
 }
+
+
+//确认收货
+export function fetchRecieve(data) {
+  return axios({
+    url: '/api/v1/jd/order/Receipt',
+    method: 'post',
+    data
+  })
+}

@@ -18,9 +18,9 @@ export default props=>{
       <PartHeader value={"特集"} path={"campa"}/>
       {/* 特集 */}
       <Campaign/>
-      <PartHeader value={"新商品"} path={"/good/list"}/>
+      <PartHeader value={"新商品"} path={"/good/list/2"}/>
       <NewGood/>
-      <PartHeader value={"销量排行榜"} path={"/good/list"}/>
+      <PartHeader value={"销量排行榜"} path={"/good/list/1"}/>
       <Leaderboard/>
     </div>
   )

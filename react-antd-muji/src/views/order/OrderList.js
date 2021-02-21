@@ -68,7 +68,7 @@ export default (props) => {
 						orders += ';' + ele._id
 					})
 					fetchSumbitOrder({ orders }).then(() => {
-						message.success('支付成功! 我们将尽快发货',2).then(() => {
+						message.success('支付成功! 我们将尽快发货',1).then(() => {
 							 history.push('/')
 						})
 					})
